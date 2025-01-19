@@ -1,0 +1,33 @@
+﻿@model BookSawApi.WebUI.Dtos.AuthorDtos.CreateAuthorDto
+@{
+    ViewData["Title"] = "CreateAuthor";
+    Layout = "~/Areas/Admin/Views/AdminLayout/AdminLayout.cshtml";
+}
+
+<h3>Create Author</h3>
+
+<form method="post" style="text-align:left">
+    
+        <br />
+        <label>Author Name</label>        
+        <input type="text" asp-for="AuthorName" class="form-control" />
+        <br />
+        <label>Author Surname</label>
+        <input type="text" asp-for="AuthorSurname" class="form-control" />
+        <br />
+        <label>Image Url</label>
+        <input type="text" asp-for="AuthorUmageUrl" class="form-control" />
+        <br />
+        <label>Author Name</label>      
+        <textarea asp-for="AuthorDescription" rows="4" class="form-control"></textarea>
+  
+    <button type="submit" class="btn btn-primary">Create Author</button>
+</form>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

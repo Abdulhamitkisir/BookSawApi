@@ -1,0 +1,56 @@
+﻿@model List<BookSawApi.WebUI.Dtos.AuthorDtos.AuthorListDto>
+@{
+    ViewData["Title"] = "AuthorList";
+    Layout = "~/Areas/Admin/Views/AdminLayout/AdminLayout.cshtml";
+    int row = 0;
+}
+
+<h3>Author List</h3>
+
+
+<table class="table table-striped table-hover table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>#</th>
+            <th>Image</th>
+            <th>Author Name</th>
+            <th>Author Surname</th>
+            <th>About Author</th>            
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            row++;
+            <tr>
+                <td>@row</td>
+                <td><img src="@item.AuthorUmageUrl" style="max-width: 50px; max-height: 50px; object-fit: contain;" /></td>
+                <td>@item.AuthorName</td>
+                <td>@item.AuthorSurname</td>
+                <td>
+                    @if (item.AuthorDescription.Length > 50)
+                    {
+                        @item.AuthorDescription.Substring(0, 50)
+                    }
+                    else
+                    {
+                        @item.AuthorDescription
+                    }
+                </td>
+                <td><a href="/Admin/Author/DeleteAuthor/@item.AuthorId" class="btn btn-danger">Delete</a></td>
+                <td><a href="/Admin/Author/UpdateAuthor/@item.AuthorId" class="btn btn-success">Update</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Admin/Author/CreateAuthor" class="btn btn-primary">Add New Book</a>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

@@ -1,0 +1,40 @@
+﻿@model List<BookSawApi.WebUI.Dtos.AuthorDtos.AuthorListDto>
+
+<section id="special-offer" class="bookshelf pb-5 mb-5">
+
+	<div class="section-header align-center">
+		<div class="title">
+			<span>Grab your opportunity</span>
+		</div>
+		<h2 class="section-title">Yazarlari Listele</h2>
+	</div>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="inner-content">
+				<div class="product-list" data-aos="fade-up">
+					<div class="grid product-grid">
+
+						@foreach (var item in Model)
+						{
+							<div class="product-item">
+								<figure class="product-style">
+									<img src="@item.AuthorUmageUrl" alt="Books" class="product-item">
+									
+								</figure>
+								<figcaption>
+									<h3>@item.AuthorName @item.AuthorSurname</h3>
+									<span>@item.AuthorDescription</span>
+									
+							</div>
+						}			
+						
+
+					
+					</div><!--grid-->
+				</div>
+			</div><!--inner-content-->
+		</div>
+	</div>
+</section>

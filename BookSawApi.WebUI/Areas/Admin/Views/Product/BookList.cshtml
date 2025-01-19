@@ -1,0 +1,55 @@
+﻿@model List<BookSawApi.WebUI.Dtos.ProductDtos.ProductListDto>
+@{
+    ViewData["Title"] = "BookList";
+    Layout = "~/Areas/Admin/Views/AdminLayout/AdminLayout.cshtml";
+    int row = 0;
+}
+
+<h3>Book List</h3>
+
+
+<table class="table table-striped table-hover table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>#</th>
+            <th>Image</th>
+            <th>Book Name</th>           
+            <th>Description</th>
+            <th>Stock</th>
+            <th>Price</th>
+            <th>Author</th>
+            <th>Category</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            row++;
+            <tr>
+                <td>@row</td>
+                <td><img src="@item.ProductImageUrl" style="max-width: 50px; max-height: 50px; object-fit: contain;" /></td>
+                <td>@item.ProductName</td>
+                <td>
+                    @if (item.ProductDescription.Length > 50)
+                    {
+                        @item.ProductDescription.Substring(0, 50)
+                    }
+                    else
+                    {
+                        @item.ProductDescription
+                    }
+                </td>
+                
+                <td>@item.ProductStock</td>
+                <td>@item.ProductPrice</td>
+                <td>@item.AuthorName @item.AuthorSurname</td>
+                <td>@item.CategoryName</td>
+                <td><a href="/Admin/Product/DeleteProduct/@item.ProductId" class="btn btn-danger">Delete</a></td>
+                <td><a href="/Admin/Product/UpdateProduct/@item.ProductId" class="btn btn-success">Update</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Admin/Product/CreateBook" class="btn btn-primary">Add New Book</a>

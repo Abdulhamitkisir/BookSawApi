@@ -1,0 +1,48 @@
+﻿@model List<BookSawApi.WebUI.Dtos.ProductDtos.ProductListDto>
+<section id="best-selling" class="leaf-pattern-overlay">
+	<div class="corner-pattern-overlay"></div>
+	<div class="container">
+		<div class="row justify-content-center">
+			@foreach (var item in Model)
+			{
+				<div class="col-md-8">
+
+					<div class="row">
+
+						<div class="col-md-6">
+							<figure class="products-thumb">
+								<img src="@item.ProductImageUrl" alt="book" class="single-image">
+							</figure>
+						</div>
+
+						<div class="col-md-6">
+							<div class="product-entry">
+								<h2 class="section-title divider">Random 1 kitam Göster</h2>
+
+								<div class="products-content">
+									<div class="author-name">@item.AuthorName @item.AuthorSurname</div>
+									<h3 class="item-title">@item.ProductName</h3>
+									<p>
+										@item.ProductDescription
+									</p>
+									<div class="item-price">@item.ProductPrice</div>
+									<div class="btn-wrap">
+										<a href="#" class="btn-accent-arrow">
+											shop it now <i class="icon icon-ns-arrow-right"></i>
+										</a>
+									</div>
+								</div>
+
+							</div>
+						</div>
+
+					</div>
+					<!-- / row -->
+
+				</div>
+			}
+			
+
+		</div>
+	</div>
+</section>

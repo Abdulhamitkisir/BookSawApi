@@ -1,0 +1,42 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @await Component.InvokeAsync("_AdminHeadComponentPartial")
+    
+</head>
+
+<body>
+    <div id="app">
+        @await Component.InvokeAsync("_AdminSidebarComponentPartial")
+        
+        <div id="main">
+            <header class="mb-3">
+                <a href="#" class="burger-btn d-block d-xl-none">
+                    <i class="bi bi-justify fs-3"></i>
+                </a>
+            </header>
+
+          
+            @RenderBody()
+
+            @await Component.InvokeAsync("_AdminFooterComponentPartial")
+        </div>
+    </div>
+    <script src="~/mazer-1.0.0/dist/assets/vendors/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+    <script src="~/mazer-1.0.0/dist/assets/js/bootstrap.bundle.min.js"></script>
+
+    <script src="~/mazer-1.0.0/dist/assets/vendors/apexcharts/apexcharts.js"></script>
+    <script src="~/mazer-1.0.0/dist/assets/js/pages/dashboard.js"></script>
+
+    <script src="~/mazer-1.0.0/dist/assets/js/main.js"></script>
+</body>
+
+</html>

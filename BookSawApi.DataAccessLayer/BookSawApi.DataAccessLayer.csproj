@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BookSawApi.EntityLayer\BookSawApi.EntityLayer.csproj" />
+    <ProjectReference Include="..\BookSawApi.WebUI\BookSawApi.WebUI.csproj" />
+  </ItemGroup>
+
+</Project>
