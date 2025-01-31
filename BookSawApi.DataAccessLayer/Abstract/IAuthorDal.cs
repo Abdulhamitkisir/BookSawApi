@@ -11,7 +11,7 @@ namespace BookSawApi.DataAccessLayer.Abstract
     public interface IAuthorDal:IGenericDal<Author>
     {
 		public List<AuthorListDto> AuthorList();
-		public void TAuthorCreate(CreateAuthorDto createAuthorDto);
-		public void TAuthorUpdate(int id, UpdateAuthorDto updateAuthorDto);
+		public void AuthorCreate(CreateAuthorDto createAuthorDto);
+		public void AuthorUpdate(UpdateAuthorDto updateAuthorDto);
 	}
 }

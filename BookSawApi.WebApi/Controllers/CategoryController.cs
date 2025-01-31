@@ -1,5 +1,6 @@
 ﻿using BookSawApi.BusinessLayer.Abstract;
 using BookSawApi.EntityLayer.Concrete;
+using BookSawApi.WebUI.Dtos.CategoryDtos;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -22,9 +23,9 @@ namespace BookSawApi.WebApi.Controllers
             return Ok(values);
         }
         [HttpPost("Create")]
-        public IActionResult CreateCategory(Category category)
+        public IActionResult CreateCategory(CreateCategoryDto createCategoryDto)
         { 
-            _categoryService.TInsert(category);
+            _categoryService.TCategoryCreate(createCategoryDto);
             return Ok("Insert Process Success");
         }
         [HttpDelete("Delete")]
@@ -34,9 +35,9 @@ namespace BookSawApi.WebApi.Controllers
             return Ok("Delete Succes");
         }
         [HttpPut("Update")]
-        public IActionResult UpdateCategory(Category category)
+        public IActionResult UpdateCategory(ResultCategoryDto resultCategoryDto)
         {
-            _categoryService.TUpdate(category);
+            _categoryService.TUpdateCategory(resultCategoryDto);
             return Ok("Update Success");
         }
 

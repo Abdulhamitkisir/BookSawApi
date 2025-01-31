@@ -52,12 +52,12 @@ namespace BookSawApi.BusinessLayer.Concrete
 
 		public void TAuthorCreate(CreateAuthorDto createAuthorDto)
 		{
-			 _authorDal.TAuthorCreate(createAuthorDto);
+			 _authorDal.AuthorCreate(createAuthorDto);
 		}
 
-		public void TAuthorUpdate(int id, UpdateAuthorDto updateAuthorDto)
+		public void TAuthorUpdate(UpdateAuthorDto updateAuthorDto)
 		{
-			_authorDal.TAuthorUpdate(id, updateAuthorDto);
+			_authorDal.AuthorUpdate(updateAuthorDto);
 		}
 	}
 }

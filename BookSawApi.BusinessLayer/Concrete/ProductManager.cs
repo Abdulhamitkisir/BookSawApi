@@ -31,6 +31,11 @@ namespace BookSawApi.BusinessLayer.Concrete
 
         }
 
+        public List<Product> TGetBooksByCategoryId(int id)
+        {
+            return _productDal.GetBooksByCategoryId(id);
+        }
+
         public Product TGetById(int id)
         {
             return _productDal.GetById(id);
@@ -71,9 +76,9 @@ namespace BookSawApi.BusinessLayer.Concrete
 			return _productDal.ProductList();
 		}
 
-		public void TProductUpdate(int id, UpdateProductDto updateProductDto)
+		public void TProductUpdate( UpdateProductDto updateProductDto)
 		{
-			_productDal.ProductUpdate(id, updateProductDto);
+			_productDal.ProductUpdate(updateProductDto);
 		}
 
 		public void TUpdate(Product entitiy)

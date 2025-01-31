@@ -12,6 +12,6 @@ namespace BookSawApi.BusinessLayer.Abstract
     {
 		public List<AuthorListDto> TAuthorList();
 		public void TAuthorCreate(CreateAuthorDto createAuthorDto);
-		public void TAuthorUpdate(int id, UpdateAuthorDto updateAuthorDto);
+		public void TAuthorUpdate( UpdateAuthorDto updateAuthorDto);
 	}
 }

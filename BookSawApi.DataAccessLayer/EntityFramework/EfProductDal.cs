@@ -13,7 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using BookSawApi.EntityLayer.Concrete;
 namespace BookSawApi.DataAccessLayer.EntityFramework
 {
 	public class EfProductDal : GenericRepository<Product>, IProductDal
@@ -30,8 +30,13 @@ namespace BookSawApi.DataAccessLayer.EntityFramework
 			int value = context.Products.Count();
 			return value;
 		}
+        public List<Product> GetBooksByCategoryId(int id)
+        {
+            //return context.Books.Include(a => a.Writer).Where(x => x.CategoryId == id).ToList();
+			return context.Products.Where(x=> x.CategoryId==id).ToList();
+        }
 
-		public List<LastFourProductDto> LastFourProduct()
+        public List<LastFourProductDto> LastFourProduct()
 		{
 
 			// Son 4 ürünü ve ilişkili Author ve Category bilgilerini almak
@@ -97,10 +102,10 @@ namespace BookSawApi.DataAccessLayer.EntityFramework
 			context.Products.Add(product);
 			context.SaveChanges();
 		}
-		public void ProductUpdate(int id, UpdateProductDto updateProductDto)
+		public void ProductUpdate(UpdateProductDto updateProductDto)
 		{
 
-			var updateProduct = context.Products.FirstOrDefault(p => p.ProductId == id);
+			var updateProduct = context.Products.FirstOrDefault(p => p.ProductId ==updateProductDto.ProductId);
 
 
 			if (updateProduct != null)

@@ -15,8 +15,10 @@ namespace BookSawApi.BusinessLayer.Abstract
         public List<LastFourProductDto> TLastFourProduct();
         public List<ProductListDto> TProductList();
         public void TProductCreate(CreateProductDto createProductDto);
-        public void TProductUpdate(int id, UpdateProductDto updateProductDto);
+        public void TProductUpdate(UpdateProductDto updateProductDto);
         public List<ProductListDto> TGetRandomProduct();
         public List<ProductListDto> TGetProductWithCategories(int? categoryId = null);
-	}
+        public List<Product> TGetBooksByCategoryId(int id);
+
+    }
 }

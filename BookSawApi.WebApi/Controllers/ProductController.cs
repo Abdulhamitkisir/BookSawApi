@@ -27,6 +27,12 @@ namespace BookSawApi.WebApi.Controllers
 
             return Ok(_productService.TProductList());
         }
+        [HttpGet("GetProductById")]
+        public IActionResult GetProductById(int id) 
+        {
+            var values=_productService.TGetById(id);
+            return Ok(values);
+        }
 		[HttpGet("GetRandomProduct")]
 		public IActionResult GetRandomProduct()
 		{
@@ -51,27 +57,33 @@ namespace BookSawApi.WebApi.Controllers
 			return Ok("Succes");
         }
         [HttpPut("ProductUpdate")]
-        public IActionResult UpdateProduct(int id ,UpdateProductDto updateProductDto)
+        public IActionResult UpdateProduct(UpdateProductDto updateProductDto)
         {
-            _productService.TProductUpdate(id, updateProductDto);
+            _productService.TProductUpdate(updateProductDto);
             return Ok("Update Success");
         }
-        [HttpDelete("Product Delete")]
+        [HttpDelete("ProductDelete")]
         public IActionResult DeleteProduct(int id)
         {
             _productService.TDelete(id);
             return Ok("Delete Process Success");
         }
-        [HttpGet("Product List By ID")]
+        [HttpGet("ProductListByID")]
         public IActionResult GetProductId(int id)
         { 
             var values=_productService.TGetById(id);
             return Ok(values);
         }
-        [HttpGet("Product Count")]
+        [HttpGet("ProductCount")]
         public IActionResult ProductCount()
         {
             return Ok(_productService.TGetProductCount());
+        }
+        [HttpGet("GetBookWithCategoryId")]
+        public IActionResult GetBookWithCategoryId(int id) 
+        {
+        var values=_productService.TGetBooksByCategoryId(id);
+            return Ok(values);
         }
 
     }

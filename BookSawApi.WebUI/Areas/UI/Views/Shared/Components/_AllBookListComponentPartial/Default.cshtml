@@ -1,0 +1,30 @@
+﻿
+@model List<BookSawApi.WebUI.Dtos.ProductDtos.ProductListDto>
+
+<div id="all-genre" data-tab-content class="active">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3">
+                <div class="product-item">
+
+                    <figure class="product-style">
+                        <img src="@item.ProductImageUrl" style="height:400px; width: auto!important" alt="Books" class="product-item">
+                        <button type="button" class="add-to-cart" data-product-tile="add-to-cart">
+                           Add Chart
+                        </button>
+                    </figure>
+                    <figcaption>
+                        <h3>@item.ProductName</h3>
+                        <span>@item.AuthorName @item.AuthorSurname</span>
+                        <div class="item-price">€ @item.ProductPrice</div>
+                    </figcaption>
+
+
+                </div>
+            </div>
+
+        }
+
+    </div>
+</div>

@@ -1,40 +1,53 @@
 ﻿@model List<BookSawApi.WebUI.Dtos.AuthorDtos.AuthorListDto>
 
-<section id="special-offer" class="bookshelf pb-5 mb-5">
-
-	<div class="section-header align-center">
-		<div class="title">
-			<span>Grab your opportunity</span>
-		</div>
-		<h2 class="section-title">Yazarlari Listele</h2>
-	</div>
-
-
+<section id="latest-blog" class="py-5 my-5">
 	<div class="container">
 		<div class="row">
-			<div class="inner-content">
-				<div class="product-list" data-aos="fade-up">
-					<div class="grid product-grid">
+			<div class="col-md-12">
 
-						@foreach (var item in Model)
-						{
-							<div class="product-item">
-								<figure class="product-style">
-									<img src="@item.AuthorUmageUrl" alt="Books" class="product-item">
-									
-								</figure>
-								<figcaption>
-									<h3>@item.AuthorName @item.AuthorSurname</h3>
-									<span>@item.AuthorDescription</span>
-									
-							</div>
-						}			
-						
-
+				<div class="section-header align-center">
+					<div class="title">
 					
-					</div><!--grid-->
+					</div>
+					<h2 class="section-title">Authors</h2>
 				</div>
-			</div><!--inner-content-->
+
+				<div class="row">
+					@foreach (var item in Model)
+					{
+						<div class="col-md-4">
+
+							<article class="column" data-aos="fade-up">
+
+								<figure>
+									<a href="#" class="image-hvr-effect">
+										<img src="@item.AuthorUmageUrl" alt="post" class="post-image">
+									</a>
+								</figure>
+
+								<div class="post-item">
+									<div class="meta-date">@item.AuthorName @item.AuthorSurname</div>
+									<h3><a href="#">@item.AuthorDescription.Substring(0, Math.Min(item.AuthorDescription.Length, 100))...</a></h3>
+
+								</div>
+							</article>
+
+						</div>
+					}
+
+
+				</div>
+
+				<div class="row">
+
+					<div class="btn-wrap align-center">
+						<a href="#" class="btn btn-outline-accent btn-accent-arrow" tabindex="0">
+							View All Authors<i class="icon icon-ns-arrow-right"></i>
+						</a>
+					</div>
+				</div>
+
+			</div>
 		</div>
 	</div>
 </section>

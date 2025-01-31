@@ -17,15 +17,15 @@
 
 						<div class="col-md-6">
 							<div class="product-entry">
-								<h2 class="section-title divider">Random 1 kitam Göster</h2>
+								<h2 class="section-title divider">Suggestion for you</h2>
 
 								<div class="products-content">
 									<div class="author-name">@item.AuthorName @item.AuthorSurname</div>
 									<h3 class="item-title">@item.ProductName</h3>
 									<p>
-										@item.ProductDescription
+										@item.ProductDescription.Substring(0, Math.Min(item.ProductDescription.Length, 300))
 									</p>
-									<div class="item-price">@item.ProductPrice</div>
+									<div class="item-price">@item.ProductPrice €</div>
 									<div class="btn-wrap">
 										<a href="#" class="btn-accent-arrow">
 											shop it now <i class="icon icon-ns-arrow-right"></i>

@@ -43,18 +43,46 @@ namespace BookSawApi.WebUI.Areas.Admin.Controllers
         }
         [HttpGet]
         public IActionResult CreateAuthor()
-        { 
+         {
             return View();
         }
         [HttpPost]
         public async Task<IActionResult> CreateAuthor(CreateAuthorDto createAuthorDto)
         {
-            var client= _httpClientFactory.CreateClient();
-            var jsonData=JsonConvert.SerializeObject(createAuthorDto);
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(createAuthorDto);
             StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
-            var responMessage = await client.PostAsync("https://localhost:7062/api/Author/CreateAuthor",stringContent);
+            var responMessage = await client.PostAsync("https://localhost:7062/api/Author", stringContent);
             if (responMessage.IsSuccessStatusCode)
-            { 
+            {
+                return RedirectToAction("AuthorList");
+            }
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> UpdateAuthor(int id)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var responseMessage = await client.GetAsync("https://localhost:7062/api/Author/GetById?id=" + id);
+            if (responseMessage.IsSuccessStatusCode)
+            {
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<UpdateAuthorDto>(jsonData);
+                return View(values);
+            }
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateAuthor(UpdateAuthorDto updateAuthorDto)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var jsonData = JsonConvert.SerializeObject(updateAuthorDto);
+            StringContent stringContent = new StringContent(jsonData, Encoding.UTF8, "application/json");
+            var responseMessage = await client.PutAsync("https://localhost:7062/api/Author/UpdateAuthor", stringContent);
+            if (responseMessage.IsSuccessStatusCode)
+            {
                 return Redirect("/Admin/Author/AuthorList");
             }
             return View();

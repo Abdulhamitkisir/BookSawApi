@@ -1,4 +1,4 @@
-﻿namespace BookSawApi.WebUI.Dtos
+﻿namespace BookSawApi.WebUI.Dtos.CategoryDtos
 {
     public class ResultCategoryDto
     {

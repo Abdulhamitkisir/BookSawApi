@@ -1,11 +1,11 @@
-﻿
+﻿@model List<BookSawApi.WebUI.Dtos.AuthorDtos.AuthorListDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/AdminLayout/AdminLayout.cshtml";
 }
 
 <div class="page-heading">
-    <h3>DAhbosfsf Statistics</h3>
+    <h3>Dashboard Page</h3>
 </div>
 
 <div class="page-content">
@@ -18,12 +18,12 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="stats-icon purple">
-                                        <i class="iconly-boldShow"></i>
+                                        <i class="iconly-boldProfile"></i>
                                     </div>
                                 </div>
                                 <div class="col-md-8">
-                                    <h6 class="text-muted font-semibold">Profile Views</h6>
-                                    <h6 class="font-extrabold mb-0">112.000</h6>
+                                    <h6 class="text-muted font-semibold">Total Author Count</h6>
+                                    <h6 class="font-extrabold mb-0">@ViewBag.TotalAuthors</h6>
                                 </div>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="stats-icon blue">
-                                        <i class="iconly-boldProfile"></i>
+                                        <i class="iconly-boldShow"></i>
                                     </div>
                                 </div>
                                 <div class="col-md-8">

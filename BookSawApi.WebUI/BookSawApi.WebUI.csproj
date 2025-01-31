@@ -19,7 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\UI\Dtos\" />
     <Folder Include="Views\Shared\Admin\Components\" />
   </ItemGroup>
 

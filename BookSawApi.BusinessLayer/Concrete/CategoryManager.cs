@@ -1,6 +1,7 @@
 ﻿using BookSawApi.BusinessLayer.Abstract;
 using BookSawApi.DataAccessLayer.Abstract;
 using BookSawApi.EntityLayer.Concrete;
+using BookSawApi.WebUI.Dtos.CategoryDtos;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,11 @@ namespace BookSawApi.BusinessLayer.Concrete
         public CategoryManager(ICategoryDal categoryDal)
         {
             _categoryDal = categoryDal;
+        }
+
+        public void TCategoryCreate(CreateCategoryDto createCategoryDto)
+        {
+            _categoryDal.CategoryCreate(createCategoryDto);
         }
 
         public void TDelete(int id)
@@ -41,6 +47,11 @@ namespace BookSawApi.BusinessLayer.Concrete
         public void TUpdate(Category entitiy)
         {
             _categoryDal.Update(entitiy);
+        }
+
+        public void TUpdateCategory(ResultCategoryDto resultCategoryDto)
+        {
+            _categoryDal.UpdateCategory(resultCategoryDto);
         }
     }
 }

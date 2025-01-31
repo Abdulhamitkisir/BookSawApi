@@ -39,7 +39,7 @@ namespace BookSawApi.DataAccessLayer.EntityFramework
         
 		
 
-		public void TAuthorCreate(CreateAuthorDto createAuthorDto)
+		public void AuthorCreate(CreateAuthorDto createAuthorDto)
 		{
 			var Author = new Author
 			{
@@ -52,15 +52,17 @@ namespace BookSawApi.DataAccessLayer.EntityFramework
 			context.SaveChanges();
 		}
 
-		public void TAuthorUpdate(int id, UpdateAuthorDto updateAuthorDto)
+		public void AuthorUpdate(UpdateAuthorDto updateAuthorDto)
 		{
-			var AuthorUpdate = context.Authors.FirstOrDefault(x => x.AuthorId == id);
+			var AuthorUpdate = context.Authors.FirstOrDefault(x => x.AuthorId == updateAuthorDto.AuthorId);
+			
 			if (AuthorUpdate != null)
 			{
 				AuthorUpdate.AuthorName = updateAuthorDto.AuthorName;
 				AuthorUpdate.AuthorSurname = updateAuthorDto.AuthorSurname;
 				AuthorUpdate.AuthorDescription = updateAuthorDto.AuthorDescription;
 				AuthorUpdate.AuthorUmageUrl = updateAuthorDto.AuthorUmageUrl;
+				
 				context.SaveChanges();
 			}
 			else

@@ -1,0 +1,44 @@
+﻿@model List<ArticleListDto>
+@{
+    ViewData["Title"] = "ArticleList";
+    Layout = "~/Areas/Admin/Views/AdminLayout/AdminLayout.cshtml";
+    int row = 0;
+}
+
+<h3>Article List</h3>
+<br />
+<table class="table table-striped table-hover table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>#</th>
+            <th>Article Title </th>
+            <th>Article Detail </th>
+            <th>Article Image Url </th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            row++;
+            <tr>
+                <td>@row</td>
+                <td>@item.ArticleTitle</td>
+                <td>@item.ArticleDetail.Substring(0, Math.Min(item.ArticleDetail.Length, 200))</td>
+                <td>@item.ArticleImageUrl.Substring(0, Math.Min(item.ArticleImageUrl.Length, 200))</td>
+                <td><a href="/Admin/Article/DeleteArticle/@item.ArticleId" class="btn btn-danger">Delete</a></td>
+                <td><a href="/Admin/Article/UpdateArticle/@item.ArticleId" class="btn btn-success">Update</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Admin/Article/CreateArticle" class="btn btn-primary">New Article</a>
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

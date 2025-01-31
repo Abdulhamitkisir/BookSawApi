@@ -21,16 +21,16 @@ namespace BookSawApi.WebApi.Controllers
 		{
 			return Ok(_authorService.TAuthorList());
 		}
-		[HttpPost("CreateAuthor")]
+		[HttpPost]
 		public IActionResult CreateAuthor(CreateAuthorDto createAuthorDto)
 		{
 			_authorService.TAuthorCreate(createAuthorDto);
 			return Ok("Insert Process Success");
 		}
 		[HttpPut("UpdateAuthor")]
-		public IActionResult UpdateAuthor(int id, UpdateAuthorDto updateAuthorDto)
+		public IActionResult UpdateAuthor(UpdateAuthorDto updateAuthorDto)
 		{
-			_authorService.TAuthorUpdate(id, updateAuthorDto);
+			_authorService.TAuthorUpdate(updateAuthorDto);
 			return Ok("Update Process Success");
 		}
 		[HttpDelete("Delete")]
@@ -44,14 +44,7 @@ namespace BookSawApi.WebApi.Controllers
 		{
 			var values = _authorService.TGetById(id);
 
-			return Ok(new
-			{
-				message = "Succes",
-				data = values
-			}
-			);
-
-
+			return Ok(values);
 		}
 	}
 }

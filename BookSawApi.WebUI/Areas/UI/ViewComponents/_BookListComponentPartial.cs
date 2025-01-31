@@ -1,4 +1,5 @@
 ﻿using BookSawApi.WebUI.Dtos.AuthorDtos;
+using BookSawApi.WebUI.Dtos.CategoryDtos;
 using BookSawApi.WebUI.Dtos.ProductDtos;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
@@ -18,28 +19,27 @@ namespace BookSawApi.WebUI.Areas.UI.ViewComponents
 
 		public async Task<IViewComponentResult> InvokeAsync()
 		{
-			var client = _httpClientFactory.CreateClient();
-			var responsesMessage = await client.GetAsync("https://localhost:7062/api/Product/GetProductByCategory");
-			if (responsesMessage.IsSuccessStatusCode)
-			{
-				var jsondata = await responsesMessage.Content.ReadAsStringAsync();
-				var values = JsonConvert.DeserializeObject<List<ProductListDto>>(jsondata);
-				return View(values);
-			}
-			return View();
-		}
-        public async Task<IViewComponentResult> InvokesAsync()
-        {
             var client = _httpClientFactory.CreateClient();
-            var responsesMessage = await client.GetAsync("https://localhost:7062/api/Product/GetProductByCategory");
-            if (responsesMessage.IsSuccessStatusCode)
+
+
+            var responseMessage = await client.GetAsync("https://localhost:7062/api/Category");
+
+
+            if (responseMessage.IsSuccessStatusCode)
             {
-                var jsondata = await responsesMessage.Content.ReadAsStringAsync();
-                var values = JsonConvert.DeserializeObject<List<ProductListDto>>(jsondata);
+
+                var jsonData = await responseMessage.Content.ReadAsStringAsync();
+
+
+                var values = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData);
+
                 return View(values);
             }
+
+
             return View();
         }
+       
 
     }
 }

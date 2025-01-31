@@ -14,9 +14,10 @@ namespace BookSawApi.DataAccessLayer.Abstract
         public List<LastFourProductDto> LastFourProduct();
         public List<ProductListDto> ProductList();
         public void ProductCreate(CreateProductDto createProductDto);
-        public void ProductUpdate(int id, UpdateProductDto updateProductDto);
+        public void ProductUpdate(UpdateProductDto updateProductDto);
         public List<ProductListDto> GetRandomProduct();
         public List<ProductListDto> GetProductWithCategories(int? categoryId = null);
+        public List<Product> GetBooksByCategoryId(int id);
 
-	}
+    }
 }

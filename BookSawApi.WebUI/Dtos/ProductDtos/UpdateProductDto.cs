@@ -2,7 +2,8 @@
 {
 	public class UpdateProductDto
 	{
-		public string ProductName { get; set; }
+        public int ProductId { get; set; }
+        public string ProductName { get; set; }
 		public string ProductImageUrl { get; set; }
 		public string ProductDescription { get; set; }
 		public int ProductStock { get; set; }

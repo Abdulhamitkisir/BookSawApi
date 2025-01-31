@@ -1,0 +1,30 @@
+﻿@model ArticleListDto
+
+@{
+    ViewData["Title"] = "UpdateArticle";
+    Layout = "~/Areas/Admin/Views/AdminLayout/AdminLayout.cshtml";
+}
+
+<h3>Update Article</h3>
+
+<form method="post">
+    <div class="container">
+        <br /><br />
+        <input type="hidden" asp-for="ArticleId"/>
+        <label>Article Title</label>
+        <input type="text" asp-for="ArticleTitle" class="form-control" />
+        <br />
+        <label>Article Detail</label>
+        <textarea class="form-control" rows="5" asp-for="ArticleDetail"></textarea>
+        <br />
+        <label>Article Image Url</label>
+        <input type="text" asp-for="ArticleImageUrl" class="form-control" />
+        <br />
+        <button class="btn btn-primary">Save New Article</button>
+    </div>
+</form>
+<br />
+<br />
+<br />
+<br />
+<br />
