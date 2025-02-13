@@ -1,6 +1,12 @@
+using BookSawApi.DataAccessLayer.Context;
+using BookSawApi.EntityLayer.Concrete;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<BookSawContext>();
+builder.Services.AddIdentity<AppUser,AppRole>().AddEntityFrameworkStores<BookSawContext>();
+
 
 builder.Services.AddHttpClient();
 

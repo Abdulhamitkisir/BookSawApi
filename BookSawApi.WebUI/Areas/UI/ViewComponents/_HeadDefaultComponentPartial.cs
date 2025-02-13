@@ -6,7 +6,8 @@ namespace BookSawApi.WebUI.Areas.UI.ViewComponents
 	{
 		public IViewComponentResult Invoke()
 		{
-			return View();
-		}
-	}
+            return View();
+
+        }
+    }
 }

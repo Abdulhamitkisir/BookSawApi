@@ -1,0 +1,26 @@
+﻿@model RegisterViewModel
+@{
+    Layout = null;
+}
+
+<div class="container">
+    <br /><br />
+    <form method="post">
+        <label>Your Name</label>
+        <input type="text" class="form-control" asp-for="Name"/>
+        <br />
+        <label>Your Surname</label>
+        <input type="text" class="form-control" asp-for="Surname" />
+        <br />
+        <label>E-Mail </label>
+        <input type="text" class="form-control" asp-for="Email" />
+        <br />
+        <label>User Name</label>
+        <input type="text" class="form-control" asp-for="Username" />
+        <br />
+        <label>Password</label>
+        <input type="text" class="form-control" asp-for="Password" />
+        <br />
+        <button class="btn btn-primary">Save User</button>
+    </form>
+</div>

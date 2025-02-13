@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -1821,7 +1821,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BookSawApi.EntityLayer\BookSawApi.EntityLayer.csproj" />
+    <ProjectReference Include="..\BookSawApi.BusinessLayer\BookSawApi.BusinessLayer.csproj" />
   </ItemGroup>
 
 </Project>

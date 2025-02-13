@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BookSawApi.EntityLayer\BookSawApi.EntityLayer.csproj" />
-    <ProjectReference Include="..\BookSawApi.WebUI\BookSawApi.WebUI.csproj" />
+    
   </ItemGroup>
 
 </Project>

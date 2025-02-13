@@ -3,8 +3,6 @@ using BookSawApi.DataAccessLayer.Context;
 using BookSawApi.DataAccessLayer.Repositories;
 using BookSawApi.EntityLayer.Concrete;
 using BookSawApi.WebUI.Dtos.ProductDtos;
-using Humanizer;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -13,7 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BookSawApi.EntityLayer.Concrete;
+
 namespace BookSawApi.DataAccessLayer.EntityFramework
 {
 	public class EfProductDal : GenericRepository<Product>, IProductDal
