@@ -1,4 +1,4 @@
-﻿@model List<BookSawApi.WebUI.Dtos.AuthorDtos.AuthorListDto>
+﻿
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/AdminLayout/AdminLayout.cshtml";
@@ -7,6 +7,10 @@
 <div class="page-heading">
     <h3>Dashboard Page</h3>
 </div>
+<br />
+<h4>Welcome  @ViewBag.UserName</h4>
+<br />
+<br />
 
 <div class="page-content">
     <section class="row">
@@ -39,8 +43,8 @@
                                     </div>
                                 </div>
                                 <div class="col-md-8">
-                                    <h6 class="text-muted font-semibold">Followers</h6>
-                                    <h6 class="font-extrabold mb-0">183.000</h6>
+                                    <h6 class="text-muted font-semibold">Total Book Count</h6>
+                                    <h6 class="font-extrabold mb-0">@ViewBag.TotalBooks</h6>
                                 </div>
                             </div>
                         </div>
@@ -56,8 +60,8 @@
                                     </div>
                                 </div>
                                 <div class="col-md-8">
-                                    <h6 class="text-muted font-semibold">Following</h6>
-                                    <h6 class="font-extrabold mb-0">80.000</h6>
+                                    <h6 class="text-muted font-semibold">Category Count</h6>
+                                    <h6 class="font-extrabold mb-0">@ViewBag.Category</h6>
                                 </div>
                             </div>
                         </div>
@@ -73,8 +77,8 @@
                                     </div>
                                 </div>
                                 <div class="col-md-8">
-                                    <h6 class="text-muted font-semibold">Saved Post</h6>
-                                    <h6 class="font-extrabold mb-0">112</h6>
+                                    <h6 class="text-muted font-semibold">Article Count</h6>
+                                    <h6 class="font-extrabold mb-0">@ViewBag.Article</h6>
                                 </div>
                             </div>
                         </div>
@@ -87,5 +91,11 @@
 
     </section>
 </div>
+<br />
+<br />
+<br />
+<br />
+<br />
+
 
 

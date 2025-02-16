@@ -2,9 +2,9 @@
 
 namespace BookSawApi.WebUI.Controllers
 {
-    public class DefaultController : Controller
+    public class ErrorPageController : Controller
     {
-        public IActionResult Index()
+        public IActionResult ErrorPage404()
         {
             return View();
         }

@@ -14,6 +14,16 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
+//This is for apply error page 
+app.UseStatusCodePages(async x =>
+{
+    if (x.HttpContext.Response.StatusCode==404)
+    {
+        x.HttpContext.Response.Redirect("/ErrorPage/ErrorPage404");
+    }
+}
+);
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -26,6 +36,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();
 
 app.UseAuthorization();
 app.UseEndpoints(endpoints =>
